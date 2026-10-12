@@ -1,0 +1,863 @@
+{
+  "date": "2026-10-12",
+  "version": "1.0.0-legion-rc8.1",
+  "status": "LOCALIZED_QUEST_REPLY_FIX_VERIFIED_IN_GAME",
+  "fullAcceptance": false,
+  "client": {
+    "version": "7.3.5",
+    "build": "26972",
+    "interface": 70300,
+    "bitness": 32,
+    "locale": "koKR"
+  },
+  "server": "SPP Legion V2 Praevius 2026.2a with supplied _SQL_Kor localization",
+  "scope": "Localized quest helper replies; previous release observations are retained under priorRc8 and were not all repeated.",
+  "beforeFix": {
+    "version": "1.0.0-legion-rc8",
+    "questId": 27168,
+    "button": "finish",
+    "result": "Korean spawn row returned; helper reported no server spawn and did not move the character."
+  },
+  "apiChecks": {
+    "passed": 24,
+    "total": 24,
+    "afterTestsMemoryMiB": 34.84
+  },
+  "currentTestSessionErrors": [],
+  "savedHistoricalErrorCount": 1,
+  "automatedValidation": {
+    "luaSyntaxFiles": 14,
+    "mockContractsPerLocale": 295,
+    "locales": [
+      "koKR",
+      "enUS"
+    ],
+    "inGameVerified": false
+  },
+  "passed": [
+    "quest_27168_end_arrives_at_creature_11053_spawn_137581_with_korean_reply",
+    "quest_27168_find_objective_arrives_at_creature_45166_spawn_366067_with_korean_reply",
+    "quest_27168_start_returns_to_creature_11053_spawn_137581_with_korean_reply",
+    "three_saved_arrival_checks_confirm_map_and_xy",
+    "ground_contact_observed_and_no_fall_or_combat",
+    "original_position_restored_and_checked_with_server_gps",
+    "ui_reload_then_24_of_24_diagnostics_and_normal_minibar"
+  ],
+  "questTravel": [
+    {
+      "side": "finish",
+      "id": 27168,
+      "distance": 0.0323470549255686,
+      "before": [
+        972.700012207031,
+        -1456.30004882813,
+        0,
+        0
+      ],
+      "observed": [
+        966,
+        -1449.70007324219,
+        0,
+        0
+      ],
+      "time": 1791796187,
+      "command": ".go creature 137581",
+      "after": [
+        966,
+        -1449.70007324219,
+        0,
+        0
+      ],
+      "status": "arrived",
+      "spawn": {
+        "y": -1449.670044,
+        "x": 966.012024,
+        "name": "High Priestess MacDonnell",
+        "guid": "137581",
+        "entry": 11053,
+        "kind": "creature",
+        "z": 63.903301,
+        "map": 0
+      }
+    },
+    {
+      "objective": {
+        "flags": 0,
+        "finished": false,
+        "object": 45166,
+        "amount": 12,
+        "id": 265950,
+        "kind": 0,
+        "text": "0/12 홀로 떠도는 영혼 풀어주기"
+      },
+      "id": 27168,
+      "distance": 0.0424245997229944,
+      "before": [
+        966,
+        -1449.70007324219,
+        0,
+        0
+      ],
+      "observed": [
+        1016.90002441406,
+        -1667.30004882813,
+        0,
+        0
+      ],
+      "time": 1791796196,
+      "after": [
+        1016.90002441406,
+        -1667.30004882813,
+        0,
+        0
+      ],
+      "command": ".go creature 366067",
+      "status": "arrived",
+      "side": "objective",
+      "spawn": {
+        "y": -1667.27002,
+        "x": 1016.929993,
+        "name": "Withdrawn Soul",
+        "guid": "366067",
+        "entry": 45166,
+        "kind": "creature",
+        "z": 67.3825,
+        "map": 0
+      }
+    },
+    {
+      "side": "start",
+      "id": 27168,
+      "distance": 0.0323470549255686,
+      "before": [
+        1016.90002441406,
+        -1667.30004882813,
+        0,
+        0
+      ],
+      "observed": [
+        966,
+        -1449.70007324219,
+        0,
+        0
+      ],
+      "time": 1791796232,
+      "command": ".go creature 137581",
+      "after": [
+        966,
+        -1449.70007324219,
+        0,
+        0
+      ],
+      "status": "arrived",
+      "spawn": {
+        "y": -1449.670044,
+        "x": 966.012024,
+        "name": "High Priestess MacDonnell",
+        "guid": "137581",
+        "entry": 11053,
+        "kind": "creature",
+        "z": 63.903301,
+        "map": 0
+      }
+    }
+  ],
+  "serverReplySample": {
+    "entry": 11053,
+    "kind": "creature",
+    "samples": [
+      "137581 - |cffffffff|Hcreature:137581|h[High Priestess MacDonnell X:966.012024 Y:-1449.670044 Z:63.903301 지도:0]|h|r ",
+      "발견된 생물 11053: 1"
+    ]
+  },
+  "clientHeightUnavailable": true,
+  "heightValidation": "Client UnitPosition reports Z=0. Server spawn height is used by go creature; ground contact was checked visually. Map/XY arrival checks are separate.",
+  "testSideEffects": {
+    "levelBeforeAndAfter": 59,
+    "healthBeforeAndAfter": 10368,
+    "questProgressChanged": false,
+    "trackedQuestCounters": [
+      "0/12 withdrawn souls",
+      "0/9 feathers",
+      "0/5 bear flank"
+    ],
+    "questCompletedOrRewarded": false,
+    "combatOrDeath": false,
+    "itemsAddedSoldOrDestroyed": 0,
+    "spellsLearnedOrUnlearned": 0,
+    "explorationXpObserved": 376,
+    "explorationLocation": "Sorrow Hill",
+    "serverOrClientProcessRestarted": false,
+    "uiReloaded": true,
+    "serverConfigurationChanged": false,
+    "worldDatabaseChanged": false,
+    "accountPermissionsChanged": false,
+    "gmGodFlightModesChanged": false,
+    "originalPositionRestored": {
+      "x": 972.729797,
+      "y": -1456.330322,
+      "z": 63.015888,
+      "map": 0,
+      "o": 0.358288
+    },
+    "restoreVerifiedBy": "Server gps output and visible original Chillwind Camp location."
+  },
+  "localEvidence": {
+    "includedInAddon": false,
+    "workspaceDirectory": "work/legion-build/ui-evidence/rc8-1-quest-locale",
+    "files": [
+      "01-condition-arrived.png",
+      "02-condition-ground.png",
+      "03-start-arrived.png",
+      "04-original-position-restored.png",
+      "05-diagnostics.png"
+    ]
+  },
+  "unverified": [
+    "other_users_pc_runtime",
+    "all_quests_and_phase_variants",
+    "gameobject_travel_with_korean_replies_in_game",
+    "party_actions",
+    "unrelated_features_not_retested_for_rc8_1"
+  ],
+  "notes": "Korean gameobject rows including the supplied malformed entry parentheses and Doom Weed quest 24994 are covered by exact SQL-template mock fixtures, not a new live object-travel test. No account information or raw SavedVariables are included.",
+  "priorRc8": {
+    "date": "2026-10-10",
+    "version": "1.0.0-legion-rc8",
+    "status": "PARTIALLY_VERIFIED_IN_GAME",
+    "fullAcceptance": false,
+    "client": {
+      "version": "7.3.5",
+      "build": "26972",
+      "interface": 70300,
+      "bitness": 32,
+      "locale": "koKR"
+    },
+    "server": "SPP 2026.2a",
+    "apiChecks": {
+      "passed": 24,
+      "total": 24,
+      "initialMemoryMiB": 37.0,
+      "afterTestsMemoryMiB": 34.87
+    },
+    "automatedValidation": {
+      "luaSyntaxFiles": 14,
+      "mockContractsPerLocale": 270,
+      "locales": [
+        "koKR",
+        "enUS"
+      ],
+      "inGameVerified": false
+    },
+    "passed": [
+      "stonetalon_map_artwork_reveal_visible_and_right_click_restores_original_fog",
+      "left_respawn_securely_clears_selection_and_revives_nearby_dead_forest_spider",
+      "right_respawn_selected_dead_forest_spider_returns_alive_2212_health",
+      "minibar_die_one_click_kills_forest_spider_twice",
+      "unstuck_start_cast_and_actual_arrival_at_lordanel",
+      "warrior_talent_picker_53_spells",
+      "warrior_class_picker_127_results_at_level_40",
+      "profession_picker_opens_first_aid_75_of_75",
+      "unlearned_recipe_button_filters_35_to_32",
+      "max_skills_noop_message_when_learned_skill_already_at_cap",
+      "runtime_24_of_24_zero_current_session_errors",
+      "original_stonetalon_position_restored_and_ui_reloaded"
+    ],
+    "priorRc1": {
+      "version": "1.0.0-legion-rc1",
+      "apiChecks": {
+        "passed": 19,
+        "total": 19,
+        "initialMemoryMiB": 26.1
+      },
+      "passed": [
+        "gm_permission_level_3",
+        "gm_mode_on",
+        "level_up_down",
+        "first_aid_learn_and_max",
+        "secure_self_recipe_learn",
+        "recipe_learned_state_and_filter",
+        "item_search_and_add",
+        "potion_use_without_blocked_warning",
+        "bag_equip_click_capacity_20_to_26",
+        "flight_on_off",
+        "gm_island_landing",
+        "eye_of_azshara_outdoor_entrance",
+        "normal_heroic_switch",
+        "taxi_node_1870_npc_landing",
+        "window_layering",
+        "small_screen_quest_helper",
+        "korean_english_ui"
+      ],
+      "repeatedInFullForRc2": false
+    },
+    "travelCoordinates": {
+      "changedFromRc1": false,
+      "sha256": "ade827730b8a51ab4c576db3cd2a8a25d1036ce6dd7a6a45ca269a634cf0c746"
+    },
+    "testSideEffects": {
+      "levelBeforeAndAfter": 40,
+      "deathDuringTests": false,
+      "serverOrClientRestarted": false,
+      "uiReloaded": true,
+      "serverConfigChanged": false,
+      "worldDatabaseChanged": false,
+      "accountPermissionsChanged": false,
+      "gmGodFlightModesChanged": false,
+      "itemsAddedSoldOrDestroyed": 0,
+      "spellsLearnedOrUnlearned": 0,
+      "professionRanksChanged": false,
+      "questCompletedOrRewarded": false,
+      "questObjectiveCounters": "No visible change in tracked quest counters.",
+      "creatureKillRequests": 3,
+      "verifiedSpiderKillRespawnCycles": 2,
+      "otherCreature": "An earlier Kromgar Peon kill lost selection; its corpse was not compared.",
+      "experienceChangeMeasured": false,
+      "travel": "Start moved to Lordanel; an existing Forest Spider was used in Elwynn Forest.",
+      "finalLocation": "Original position beside the house at Windshear Mine, Stonetalon, map 1.",
+      "positionRestoreCommand": ".go xyz 980.639099 -381.916687 16.368759 1 1.911923",
+      "mapArtworkRevealRestoredOff": true,
+      "serverExplorationModifiedByMapReveal": false
+    },
+    "failedAndDisabled": [
+      "generic_server_go_quest_14078_invalid_landing"
+    ],
+    "unavailableData": [
+      "innkeeper_spawns",
+      "private_spp_quest_relation_export",
+      "unmapped_scripted_currency_reputation_and_area_objective_locations"
+    ],
+    "unverified": [
+      "all_destinations",
+      "mounted_landings",
+      "combat_item_use",
+      "all_profession_ranks",
+      "all_server_commands",
+      "multiplayer_and_party_actions",
+      "quest_completion",
+      "bag_drag_gesture",
+      "shift_click_split_stack_in_game",
+      "bulk_sale_execution_in_game",
+      "bulk_destruction_execution_in_game",
+      "bank_mail_item_transfer_in_game",
+      "automatic_gray_sale_in_game",
+      "all_minibar_commands_and_keys_in_combat",
+      "all_quest_givers_and_phase_variants",
+      "quest_gameobject_givers_in_game",
+      "all_quest_objectives_and_item_sources",
+      "objective_and_source_pickers_in_game",
+      "scripted_door_objective_14098_in_game",
+      "all_111_map_artwork_sets",
+      "gameobject_area_respawn",
+      "all_utility_commands_on_other_players",
+      "max_all_skills_actual_rank_change_rc8",
+      "all_talent_classes_in_game",
+      "new_picker_spell_learning_rc8"
+    ],
+    "notes": "RC8 uses the actual SPP command help instead of assuming upstream commands exist. Map reveal is local artwork only. Selected and nearby respawn were observed dead-to-alive on a Forest Spider, 2212 health. Respawn recreates the target on this build, so the diagnostic remains sent rather than falsely confirmed; UI screenshots are the live outcome evidence. Full command, map, profession and multiplayer acceptance remains incomplete.",
+    "priorRc2": {
+      "version": "1.0.0-legion-rc2",
+      "apiChecks": {
+        "passed": 22,
+        "total": 22,
+        "initialMemoryMiB": 29.8
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 84,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "wotlk_style_menu_and_panels",
+        "small_and_large_window_layout",
+        "warrior_classification_147_results",
+        "known_spell_filter_147_to_140",
+        "mortal_strike_12294_secure_self_learn",
+        "spell_learned_state_and_unlearn",
+        "item_full_search_103892_results",
+        "item_two_column_normal_and_advanced_layout",
+        "quantity_popup_and_item_118_add",
+        "six_travel_categories_and_table",
+        "raid_difficulty_and_player_labels",
+        "travel_level_sort",
+        "first_aid_75_of_75_and_sequential_buttons",
+        "learned_recipe_filter",
+        "profession_search_button_visible",
+        "runtime_diagnostics_22_of_22"
+      ],
+      "testSideEffects": {
+        "temporarySpell12294Unlearned": true,
+        "addedPotion118Remaining": 1,
+        "userPositionAndLevelPreserved": true,
+        "serverOrClientRestarted": false,
+        "accountPermissionsChanged": false
+      }
+    },
+    "savedDiagnosticErrorsAfterTests": 1,
+    "priorRc3": {
+      "version": "1.0.0-legion-rc3",
+      "apiChecks": {
+        "passed": 22,
+        "total": 22,
+        "initialMemoryMiB": 29.9
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 100,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "compact_bags_3_and_4_rows",
+        "numbered_empty_and_equipped_bag_slots",
+        "mouse_wheel_and_arrow_scrolling",
+        "filtered_potion_use_without_blocked_warning",
+        "free_slots_24_to_25_after_potion",
+        "click_item_move_and_sort",
+        "equipped_bag_click_opens_default_bag",
+        "bag_4496_equip_capacity_26_to_32",
+        "bag_height_persisted_after_reload",
+        "runtime_diagnostic_errors_empty"
+      ],
+      "testSideEffects": {
+        "potion118Consumed": 1,
+        "bag4496AddedAndEquipped": 1,
+        "inventorySlotsAfter": 32,
+        "userPositionAndLevelPreserved": true,
+        "serverOrClientRestarted": false,
+        "accountPermissionsChanged": false
+      }
+    },
+    "priorRc4": {
+      "version": "1.0.0-legion-rc4",
+      "apiChecks": {
+        "passed": 22,
+        "total": 22,
+        "initialMemoryMiB": 29.9
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 133,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "wotlk_style_bag_toolbar_and_footer",
+        "b_key_opens_unified_bags",
+        "pin_toggle_and_pinned_item_use_refused",
+        "native_potion_use_stack_2_to_1_without_blocked_warning",
+        "selection_check_and_count",
+        "selected_consumable_destroy_preview_and_cancel_without_loss",
+        "manual_sort_preserves_pinned_slot",
+        "automatic_sort_toggle_and_reorder",
+        "sale_condition_quality_colors_and_quest_label",
+        "height_and_settings_preserved_after_reload",
+        "runtime_diagnostics_22_of_22",
+        "saved_runtime_errors_empty"
+      ],
+      "testSideEffects": {
+        "potion118Added": 2,
+        "potion118Consumed": 1,
+        "potion118Remaining": 1,
+        "inventorySlotsAfter": 32,
+        "savedBagRows": 4,
+        "testPinRemoved": true,
+        "automaticSortEnabled": true,
+        "bulkFiltersRestoredToGrayOnly": true,
+        "itemsSoldOrDestroyed": 0,
+        "userPositionAndLevelPreserved": true,
+        "serverOrClientRestarted": false,
+        "accountPermissionsChanged": false
+      }
+    },
+    "screenshots": [
+      "ui-evidence/35-rc8-map-before.png",
+      "ui-evidence/36-rc8-map-revealed.png",
+      "ui-evidence/37-rc8-map-restored.png",
+      "ui-evidence/38-rc8-unstuck-arrival.png",
+      "ui-evidence/39-rc8-respawn-dead.png",
+      "ui-evidence/40-rc8-respawn-alive.png",
+      "ui-evidence/41-rc8-area-respawn-dead.png",
+      "ui-evidence/42-rc8-area-respawn-alive.png",
+      "ui-evidence/43-rc8-original-position-restored.png",
+      "ui-evidence/44-rc8-warrior-talent-picker.png",
+      "ui-evidence/45-rc8-warrior-class-picker.png",
+      "ui-evidence/46-rc8-max-skill-noop.png",
+      "ui-evidence/47-rc8-unlearned-recipes.png",
+      "ui-evidence/48-rc8-final-diagnostics.png",
+      "ui-evidence/49-rc8-reloaded.png"
+    ],
+    "priorRc5": {
+      "version": "1.0.0-legion-rc5",
+      "apiChecks": {
+        "passed": 22,
+        "total": 22,
+        "initialMemoryMiB": 29.9,
+        "postCombatMemoryMiB": 28.2
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 196,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "complete_settings_panel_at_1026_by_813",
+        "auto_loot_checkbox_changes_live_client_option_and_restored_off",
+        "unified_bags_off_b_key_opens_native_bag_and_option_restored_on",
+        "main_window_100_to_95_percent_immediate_resize",
+        "quest_companion_enabled_and_disabled_map_open_behavior",
+        "nondefault_window_scale_and_quest_option_persist_after_reload",
+        "combat_hides_gm_windows_and_leaves_minibar_visible",
+        "combat_end_restores_previously_open_gm_window",
+        "combat_ctrl_shift_f12_single_press_kills_raiders_training_dummy",
+        "combat_single_mouse_click_kills_silvermoon_ranger",
+        "combat_fly_on_off_secure_self_target_and_server_replies",
+        "combat_gm_mode_on_secure_self_target_and_server_reply",
+        "dead_self_resurrection_from_minibar",
+        "server_config_mode_1_reloaded_without_process_restart",
+        "runtime_diagnostics_22_of_22_and_saved_errors_empty",
+        "test_binding_removed_and_original_setting_values_restored"
+      ],
+      "testSideEffects": {
+        "temporaryBindingRemoved": true,
+        "testGmGodFlightDisabledAfterward": true,
+        "returnedToOriginalGmIslandPositionUsingRecall": true,
+        "levelBeforeAndAfter": 1,
+        "deathCountDuringTest": 1,
+        "deathReason": "The existing training dummy lookup selected Silvermoon; hostile rangers killed the level-one character before test protection was enabled.",
+        "resurrectedAndEquipmentRepaired": true,
+        "observedExplorationXpAward": 55,
+        "observedNewAbilityAndAchievement": "Honorable Medallion; retained, not rolled back",
+        "npcDatabaseSpawnsAdded": 0,
+        "npcAddTempSupportedByThisBinary": false,
+        "recordedDieCommands": 2,
+        "itemsAddedSoldOrDestroyed": 0,
+        "nameplateSettingRestoredOff": true,
+        "serverOrClientRestarted": false,
+        "serverConfigReloaded": true,
+        "serverDieCommandModeBefore": 0,
+        "serverDieCommandModeAfter": 1,
+        "accountPermissionsChanged": false,
+        "settingsRestored": {
+          "windowScale": 1,
+          "scale": 1,
+          "locale": "koKR",
+          "questCompanion": true,
+          "hideCombat": true,
+          "unifiedBags": true,
+          "autoSortBags": true,
+          "autoSellJunk": false
+        }
+      },
+      "notes": "RC5 live evidence covers settings application/persistence, combat visibility, one-press kill, flight/GM commands and resurrection. Mocked settings and queue tests are separate. Window opening, binding changes and protected editor mutations remain restricted during combat. Earlier release observations were not all repeated."
+    },
+    "questLocations": {
+      "data": {
+        "source": "https://github.com/AshamaneProject/AshamaneCore/releases/tag/ADB_735.10",
+        "questCount": 22353,
+        "withStart": 15455,
+        "withEnd": 22198,
+        "luaBytes": 499193,
+        "runtimeResolution": "list creature/object -> server spawn GUID -> go creature/object",
+        "inGameVerified": false
+      },
+      "liveQuestIds": [
+        14098,
+        14093
+      ],
+      "serverSpawn": 149782,
+      "serverEntry": 34913,
+      "serverMap": 654,
+      "serverHeight": 35.556,
+      "clientHeightUnavailable": true,
+      "allQuestLocationsVerified": false,
+      "partyStartAndEnd": "mocked_only",
+      "gameobjectGivers": "mocked_only"
+    },
+    "priorRc6": {
+      "date": "2026-10-10",
+      "version": "1.0.0-legion-rc6",
+      "status": "PARTIALLY_VERIFIED_IN_GAME",
+      "fullAcceptance": false,
+      "client": {
+        "version": "7.3.5",
+        "build": "26972",
+        "interface": 70300,
+        "bitness": 32,
+        "locale": "koKR"
+      },
+      "server": "SPP 2026.2a",
+      "apiChecks": {
+        "passed": 23,
+        "total": 23,
+        "initialMemoryMiB": 33.3
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 196,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "quest_14098_start_button_server_spawn_and_ground_landing",
+        "quest_14098_end_button_and_arrival_message",
+        "quest_14093_end_button_prefers_current_map_over_northrend_candidate",
+        "quest_14093_walk_away_and_teleport_back",
+        "quest_selection_updates_enabled_buttons",
+        "runtime_diagnostics_23_of_23_errors_empty"
+      ],
+      "travelCoordinates": {
+        "changedFromRc1": false,
+        "sha256": "ade827730b8a51ab4c576db3cd2a8a25d1036ce6dd7a6a45ca269a634cf0c746"
+      },
+      "testSideEffects": {
+        "levelBeforeAndAfter": 2,
+        "questProgressChanged": false,
+        "serverOrClientRestarted": false,
+        "uiReloaded": true,
+        "serverConfigChanged": false,
+        "worldDatabaseChanged": false,
+        "accountPermissionsChanged": false,
+        "itemsAddedSoldOrDestroyed": 0,
+        "finalLocation": "Prince Liam Greymane, Gilneas City (map 654)",
+        "testMovement": "Short walk within the same square and return to the quest NPC."
+      },
+      "failedAndDisabled": [
+        "generic_server_go_quest_14078_invalid_landing"
+      ],
+      "unavailableData": [
+        "innkeeper_spawns",
+        "verified_quest_objective_coordinates",
+        "private_spp_quest_relation_export"
+      ],
+      "unverified": [
+        "all_destinations",
+        "mounted_landings",
+        "combat_item_use",
+        "all_profession_ranks",
+        "all_server_commands",
+        "multiplayer_and_party_actions",
+        "quest_completion",
+        "bag_drag_gesture",
+        "shift_click_split_stack_in_game",
+        "bulk_sale_execution_in_game",
+        "bulk_destruction_execution_in_game",
+        "bank_mail_item_transfer_in_game",
+        "automatic_gray_sale_in_game",
+        "all_minibar_commands_and_keys_in_combat",
+        "all_quest_givers_and_phase_variants",
+        "quest_gameobject_givers_in_game",
+        "all_quest_objectives_and_item_sources",
+        "objective_and_source_pickers_in_game",
+        "scripted_door_objective_14098_in_game"
+      ],
+      "notes": "RC6 resolves public Legion quest giver IDs through live SPP list commands and teleports to the returned spawn GUID. Start/end are separate. Actual movement and ground contact were checked for Gilneas quests 14098 and 14093. Client UnitPosition Z is zero on this build; arrival uses map/XY. Earlier RC5 and other results are historical. No full-quest or multiplayer acceptance is claimed.",
+      "savedDiagnosticErrorsAfterTests": 0,
+      "savedBagRowsAfterReload": 4,
+      "settingsPersistence": {
+        "nondefaultWindowScaleAfterReload": 0.95,
+        "questCompanionAfterReload": false,
+        "finalSettings": {
+          "windowScale": 1,
+          "scale": 1,
+          "locale": "koKR",
+          "questCompanion": true,
+          "hideCombat": true,
+          "unifiedBags": true,
+          "autoSortBags": true,
+          "autoSellJunk": false
+        },
+        "finalSavedBindingCount": 0
+      },
+      "screenshots": [
+        "ui-evidence/12-rc5-config-reloaded.png",
+        "ui-evidence/13-rc5-combat-before-kill.png",
+        "ui-evidence/14-rc5-combat-key-kill.png",
+        "ui-evidence/15-rc5-combat-fly-and-kill.png",
+        "ui-evidence/16-rc5-combat-windows-hidden.png",
+        "ui-evidence/17-rc5-combat-windows-restored.png",
+        "ui-evidence/18-rc5-settings.png",
+        "ui-evidence/19-rc5-quest-companion-enabled.png",
+        "ui-evidence/20-rc5-quest-companion-disabled.png",
+        "ui-evidence/21-rc5-settings-persisted.png"
+      ],
+      "questLocations": {
+        "data": {
+          "source": "https://github.com/AshamaneProject/AshamaneCore/releases/tag/ADB_735.10",
+          "questCount": 22353,
+          "withStart": 15455,
+          "withEnd": 22198,
+          "luaBytes": 499193,
+          "runtimeResolution": "list creature/object -> server spawn GUID -> go creature/object",
+          "inGameVerified": false
+        },
+        "liveQuestIds": [
+          14098,
+          14093
+        ],
+        "serverSpawn": 149782,
+        "serverEntry": 34913,
+        "serverMap": 654,
+        "serverHeight": 35.556,
+        "clientHeightUnavailable": true,
+        "allQuestLocationsVerified": false,
+        "partyStartAndEnd": "mocked_only",
+        "gameobjectGivers": "mocked_only"
+      },
+      "repeatedInFullForRc7": false
+    },
+    "finalTestSessionErrors": {},
+    "errorHistory": {
+      "retained": [
+        "ADDON_ACTION_BLOCKED: GMMLegionQuests:Hide()"
+      ],
+      "firstOccurrenceNotEstablished": true,
+      "fix": "Do not register the protected Quests companion in generic UISpecialFrames; use the guarded map-close handler.",
+      "retested": "Objective travel, natural combat, map/companion hide, Escape in combat, UI reload.",
+      "finalSessionErrorCount": 0
+    },
+    "questObjectives": {
+      "data": {
+        "source": "https://github.com/AshamaneProject/AshamaneCore/releases/tag/ADB_735.10",
+        "archiveSHA256": "e3f0f90db8940f3a1201188fafdf740b8734e2d3e893e1cebbd14c2b9917154a",
+        "tableRows": {
+          "creature_loot_template": 914014,
+          "creature_template": 110428,
+          "gameobject_loot_template": 25886,
+          "gameobject_template": 47465,
+          "npc_vendor": 81340,
+          "quest_objectives": 28061,
+          "reference_loot_template": 7465
+        },
+        "quests": 17822,
+        "objectives": 28061,
+        "itemObjectivesWithSources": 4513,
+        "itemObjectiveIDs": 7632,
+        "scriptedOverrides": {
+          "267179": [
+            -195327
+          ]
+        },
+        "luaBytes": 1736322,
+        "coordinatesBundled": false,
+        "privateDatabaseImported": false,
+        "limits": "Public SPP-independent relations. Runtime server spawn lookup required. Scripted objectives without mapped interactables, currencies, reputation and area triggers have no inferred coordinates."
+      },
+      "liveQuestIds": [
+        24575,
+        24675
+      ],
+      "runtimeResolution": "objective -> actual creature/object source ID -> live list -> server spawn GUID -> go",
+      "publicDataMatchesPrivateServerNotGuaranteed": true,
+      "allObjectivesVerified": false,
+      "partyFollow": "mocked_only",
+      "multipleObjectiveAndSourcePickers": "mocked_only",
+      "clientHeightUnavailable": true,
+      "groundContactVerifiedVisuallyForLiveCases": true
+    },
+    "priorRc7": {
+      "version": "1.0.0-legion-rc7",
+      "apiChecks": {
+        "passed": 24,
+        "total": 24,
+        "initialMemoryMiB": 36.9
+      },
+      "automatedValidation": {
+        "luaSyntaxFiles": 14,
+        "mockContractsPerLocale": 232,
+        "locales": [
+          "koKR",
+          "enUS"
+        ],
+        "inGameVerified": false
+      },
+      "passed": [
+        "quest_24575_find_objective_resolves_shackle_object_201775_spawn_47115",
+        "quest_24575_actual_movement_and_ground_contact",
+        "quest_24675_find_item_50219_resolves_creature_37786_spawn_148903",
+        "quest_24675_actual_movement_nearby_message_and_ground_contact",
+        "quest_24675_end_button_returns_to_magda_whitewall",
+        "repeat_objective_24575_then_combat_escape_closes_map_without_new_blocked_error",
+        "runtime_diagnostics_24_of_24_final_ui_session_errors_empty",
+        "return_to_original_outpost_and_reload_preserves_quests"
+      ],
+      "testSideEffects": {
+        "levelBeforeAndAfter": 17,
+        "questProgressChanged": false,
+        "questProgress": {
+          "24575": "0/5",
+          "24675": "0/10"
+        },
+        "serverOrClientRestarted": false,
+        "uiReloaded": true,
+        "serverConfigChanged": false,
+        "worldDatabaseChanged": false,
+        "accountPermissionsChanged": false,
+        "gmGodFlightModesChanged": false,
+        "itemsAddedSoldOrDestroyed": 0,
+        "questCompletedOrRewarded": false,
+        "deathDuringTests": false,
+        "combat": "Brief hits from an existing hostile NPC during the objective/escape check; natural regeneration after returning.",
+        "finalLocation": "Duskhaven outpost, beside Magda Whitewall, map 654",
+        "returnedWithNamedRecall": true
+      },
+      "notes": "RC7 implements Find objective from public Legion objective/source IDs and live SPP spawn queries. Object and item-source travel were verified on quests 24575 and 24675. NPC destinations within 15 yards after real movement are explicitly marked nearby; objects retain a 6-yard check. One historical GMMLegionQuests:Hide blocked error remains in the cumulative log. The final retest session after the Escape-path fix has zero recorded errors. Other quests, custom objectives, phase variants and multiplayer are not fully accepted.",
+      "screenshots": [
+        "ui-evidence/27-objective-24575-arrived.png",
+        "ui-evidence/28-objective-shackles-ground.png",
+        "ui-evidence/29-objective-item-ground.png",
+        "ui-evidence/30-objective-item-confirmed.png",
+        "ui-evidence/31-objective-item-final-ground.png",
+        "ui-evidence/32-objective-test-return.png",
+        "ui-evidence/33-objective-combat-hidden.png",
+        "ui-evidence/34-objective-final-reloaded.png"
+      ]
+    },
+    "recordedAt": "2026-10-10T23:55:49.544123+09:00",
+    "currentTestSessionErrors": [],
+    "utilityCompatibility": {
+      "commandAuditQueries": 43,
+      "unsupportedOnTestedServer": [
+        "cheat explore",
+        "explore",
+        "maxskill",
+        "maxskills",
+        "unstuck",
+        "learn all recipes",
+        "learn all_myclass"
+      ],
+      "mapArtwork": {
+        "maps": 111,
+        "overlays": 1521,
+        "liveTestedMaps": [
+          "StonetalonMountains"
+        ],
+        "grantsExplorationCredit": false,
+        "requiresClientPatch": false
+      },
+      "respawn": {
+        "left": "Clear target, then nearby respawn.",
+        "right": "Keep selected dead creature; reject living creatures, pets and players."
+      },
+      "bulkLearning": "Replaced with explicit GM/class/talent/recipe selection; not one-click learn-all.",
+      "talentLearning": "Learning a spell does not select or activate its talent."
+    }
+  }
+}

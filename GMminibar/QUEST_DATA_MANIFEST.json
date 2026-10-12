@@ -1,0 +1,9 @@
+{
+  "source": "https://github.com/AshamaneProject/AshamaneCore/releases/tag/ADB_735.10",
+  "questCount": 22353,
+  "withStart": 15455,
+  "withEnd": 22198,
+  "luaBytes": 499193,
+  "runtimeResolution": "list creature/object -> server spawn GUID -> go creature/object",
+  "inGameVerified": false
+}

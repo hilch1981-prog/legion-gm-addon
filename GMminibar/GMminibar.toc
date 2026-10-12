@@ -1,0 +1,24 @@
+## Interface: 70300
+## Title: GM MINI BAR[Legion-SPP]
+## Title-koKR: GM MINI BAR[군단-SPP]
+## Author: 취미연구가
+## Version: 1.0.0
+## Notes: SPP Praevius Legion 7.3.5 · single-folder GM tools
+## Notes-koKR: SPP Praevius 군단 7.3.5 전용 · 단일 폴더 GM 도구
+## SavedVariables: GMMLegionDB, GMMLegionDiagnostics
+## DefaultState: Enabled
+Core.lua
+Locale.lua
+UI.lua
+Data\Catalog.lua
+Data\Travel.lua
+Data\Professions.lua
+Commands.lua
+MiniBar.lua
+Browsers.lua
+Professions.lua
+Travel.lua
+Bags.lua
+Quests.lua
+Diagnostics.lua
+Bindings.xml

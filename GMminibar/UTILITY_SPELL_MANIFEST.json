@@ -1,0 +1,23 @@
+{
+  "source": "supplied Legion 7.3.5.26972 DB2s",
+  "gmSpells": 0,
+  "talentSpellsByClass": {
+    "1": 53,
+    "2": 54,
+    "3": 51,
+    "4": 42,
+    "5": 53,
+    "6": 63,
+    "7": 51,
+    "8": 49,
+    "9": 42,
+    "10": 41,
+    "11": 64,
+    "12": 40
+  },
+  "sha256": {
+    "SkillLineAbility": "a7e28507f25a3e84b64cc282132e3a7689b83f91a52ba0ef58aacbe12b1e6e15",
+    "Talent": "37dc7493ffd527bbc3e3a60f5dcc2aadd50968161e4037e02548158cfab3cc84"
+  },
+  "behavior": "Explicit per-spell selection only. Talent spell learning does not activate a talent."
+}

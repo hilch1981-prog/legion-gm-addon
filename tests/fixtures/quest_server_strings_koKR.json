@@ -1,0 +1,10 @@
+{
+  "source": "056_legion_world_trinity_string.sql",
+  "sha256": "d04bccc971835d38cd2ab5e97b8055a118f347d6878640e33fcb1e97531e98ef",
+  "strings": {
+    "439": "게임물들을 찾았다 %u: %u ",
+    "441": "발견된 생물 %u: %u",
+    "515": "%d - |cffffffff|Hcreature:%d|h[%s X:%f Y:%f Z:%f 지도:%d]|h|r ",
+    "517": "%d (입장): %d) - |cffffffff|Hgameobject:%d|h[%s X:%f Y:%f Z:%f 지도:%d]|h|r "
+  }
+}

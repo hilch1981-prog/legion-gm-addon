@@ -1,0 +1,12 @@
+{
+  "source": "supplied Legion 7.3.5.26972 WorldMapOverlay / WorldMapArea DB2s",
+  "sha256": {
+    "WorldMapOverlay": "8704ca34d2dc178b849b753581a43f0a95a92edfc955433b9c8ac6e7141d8bb5",
+    "WorldMapArea": "6996c8ab73d404df10d189536155a2a7796f669204ef1957ad27c5577cde0fcb"
+  },
+  "maps": 111,
+  "overlays": 1521,
+  "excludedConditionalOrInvalid": 545,
+  "bytes": 47330,
+  "behavior": "Client map artwork only. Does not grant exploration credit, XP, achievements or flight paths."
+}

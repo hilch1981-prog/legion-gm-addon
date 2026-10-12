@@ -1,0 +1,26 @@
+{
+  "source": "https://github.com/AshamaneProject/AshamaneCore/releases/tag/ADB_735.10",
+  "archiveSHA256": "e3f0f90db8940f3a1201188fafdf740b8734e2d3e893e1cebbd14c2b9917154a",
+  "tableRows": {
+    "creature_loot_template": 914014,
+    "creature_template": 110428,
+    "gameobject_loot_template": 25886,
+    "gameobject_template": 47465,
+    "npc_vendor": 81340,
+    "quest_objectives": 28061,
+    "reference_loot_template": 7465
+  },
+  "quests": 17822,
+  "objectives": 28061,
+  "itemObjectivesWithSources": 4513,
+  "itemObjectiveIDs": 7632,
+  "scriptedOverrides": {
+    "267179": [
+      -195327
+    ]
+  },
+  "luaBytes": 1736322,
+  "coordinatesBundled": false,
+  "privateDatabaseImported": false,
+  "limits": "Public SPP-independent relations. Runtime server spawn lookup required. Scripted objectives without mapped interactables, currencies, reputation and area triggers have no inferred coordinates."
+}

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+# Preserve the tested addon, including its original line endings.
+GMminibar/** -text
+docs/images/** -text

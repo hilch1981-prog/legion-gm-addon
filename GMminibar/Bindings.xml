@@ -1,0 +1,4 @@
+<Bindings xmlns="http://www.blizzard.com/wow/ui/">
+  <Binding name="GMMLEGION_BAGS" header="GMMLEGION">GMMLegion735:ToggleBags()</Binding>
+  <Binding name="GMMLEGION_MENU">GMMLegion735:Show('Utilities')</Binding>
+</Bindings>

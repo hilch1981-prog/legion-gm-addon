@@ -1,0 +1,21 @@
+{
+  "sourceClient": "7.3.5.26972",
+  "items": 104009,
+  "spells": 179381,
+  "professions": 14,
+  "recipes": 6362,
+  "teleports": 833,
+  "portalLandingPoints": 131,
+  "flightNodes": 422,
+  "browserMetadata": {
+    "playerSpells": 1806,
+    "professionSpells": 6772,
+    "itemGroups": 895,
+    "travelRegions": 833,
+    "storage": "Data/Catalog.lua",
+    "coordinatesChangedFromRc1": false,
+    "travelCoordinatesSHA256": "ade827730b8a51ab4c576db3cd2a8a25d1036ce6dd7a6a45ca269a634cf0c746"
+  },
+  "worldSqlRead": false,
+  "gameVerified": false
+}

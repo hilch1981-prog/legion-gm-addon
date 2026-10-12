@@ -1,0 +1,65 @@
+-- Korean server-string compatibility, independent of the addon/client UI locale.
+-- Text/hyperlinks follow entries 439, 441, 515 and 517 from the supplied
+-- 056_legion_world_trinity_string.sql (sha256 in SOURCES.md). Names/positions
+-- are transcribed from the report. These are fixtures, not live game replay.
+local A=GMMLegion735;local f=A.frames.Quests
+local function check(ok,label)assert(ok,label);MOCK.passed=MOCK.passed+1 end
+MOCK:Drain();MOCK.combat=false;MOCK.dead=false;f.party:SetChecked(false)
+local oldPosition=UnitPosition
+function UnitPosition()return 2790,430,0,0 end
+local strings=MOCK.questServerStrings
+local object=string.format(strings['517'],39673,176753,39673,'Doom Weed',2795.219971,490.593299,18.747999,0)
+local creature=string.format(strings['515'],134517,134517,'Apothecary Jerrod',2796.419922,247.516006,32.321999,0)
+local parsed=A:ParseQuestSpawn(object,'object')
+check(parsed and parsed.guid=='39673'and parsed.map==0 and parsed.entry==176753 and parsed.y==490.593299,'Korean object row preserves spawn GUID, entry, map zero and Y')
+parsed=A:ParseQuestSpawn(object:gsub('입장%):', '입장:'),'object')
+check(parsed and parsed.entry==176753,'Korean entry label with corrected parentheses is also supported')
+parsed=A:ParseQuestSpawn(creature,'creature')
+check(parsed and parsed.guid=='134517'and parsed.map==0 and parsed.name=='Apothecary Jerrod','Korean creature row resolves on either UI language')
+check(not A:ParseQuestSpawn(object:gsub('지도:0','지도:unknown'),'object'),'missing Korean map ID cannot invent a destination')
+check(not A:ParseQuestSpawn(object:gsub('X:2795.219971','X:50000'),'object'),'Korean coordinates retain bounds checks')
+check(not A:ParseQuestSpawn(object:gsub('|Hgameobject:39673','|Hgameobject_entry:176753'),'object'),'template hyperlink cannot replace a spawn GUID')
+check(not A:ParseQuestSpawn(creature,'object'),'creature reply cannot satisfy Korean object query')
+local function selectQuest(id,rows)
+ MOCK.quests={{title='Quest',id=id}};MOCK.selection=1;MOCK.objectives=rows
+ QuestMapFrame.DetailsFrame.questID=id;WorldMapFrame:Show();f:Show();f:Refresh();MOCK:ResetSent()
+end
+local function count(pattern)local n=0;for _,r in ipairs(MOCK.sent)do if r[1]:match(pattern)then n=n+1 end end;return n end
+selectQuest(24994,{{text='죽음풀: 0/10',kind='item',finished=false}})
+f.find:Click()
+check(MOCK.sent[1][1]=='.list object 176753 50','reported Doom Weed objective queries the actual source object')
+MOCK:Fire('CHAT_MSG_SYSTEM',object:gsub('176753','999999'))
+check(#A.questTravel.rows==0,'mismatched Korean object entry is rejected')
+MOCK:Fire('CHAT_MSG_SYSTEM',object);MOCK:Fire('CHAT_MSG_SYSTEM',object)
+check(#A.questTravel.rows==1,'duplicate localized spawn reply is deduplicated')
+MOCK:Fire('CHAT_MSG_SYSTEM','발견된 생물 176753: 25')
+check(A.questTravel.query~=nil,'creature terminator cannot finish an object query')
+MOCK:Fire('CHAT_MSG_SYSTEM','게임물들을 찾았다 999999: 25')
+check(A.questTravel.query~=nil,'different entry terminator cannot finish the query')
+MOCK:Fire('CHAT_MSG_SYSTEM',string.format(strings['439'],176753,25))
+check(A.questTravel.query==nil,'Korean object terminator finishes lookup without waiting for timeout')
+MOCK:Drain()
+check(count('^%.go object 39673$')==1 and count('^%.go ')==1,'Find Objective sends exactly one teleport using Korean server spawn GUID')
+check(f.find:IsEnabled()and not A.questTravel,'objective button recovers after Korean lookup')
+check(count('^%.quest complete')==0,'localized lookup does not complete the quest')
+selectQuest(24994,{{text='죽음풀: 0/10',kind='item',finished=false}});f.finish:Click()
+check(MOCK.sent[1][1]=='.list creature 38977 50','reported quest end queries Apothecary Jerrod')
+MOCK:Fire('CHAT_MSG_SYSTEM',creature)
+MOCK:Fire('CHAT_MSG_SYSTEM','게임물들을 찾았다 38977: 1')
+check(A.questTravel.query~=nil,'object terminator cannot finish a creature query')
+MOCK:Fire('CHAT_MSG_SYSTEM',string.format(strings['441'],38977,1))
+check(A.questTravel.query==nil,'Korean creature terminator finishes lookup')
+MOCK:Drain()
+check(count('^%.go creature 134517$')==1 and count('^%.go ')==1,'Quest End sends exactly one teleport after Korean creature reply')
+check(f.finish:IsEnabled(),'end button recovers after Korean reply')
+selectQuest(24994,{{text='죽음풀: 0/10',kind='item',finished=false}});f.finish:Click()
+MOCK:Fire('CHAT_MSG_SYSTEM',creature);MOCK:Drain()
+check(count('^%.go creature 134517$')==1,'valid localized row still works without a recognized terminator')
+selectQuest(24994,{{text='죽음풀: 0/10',kind='item',finished=false}});f.finish:Click()
+MOCK:Fire('CHAT_MSG_SYSTEM','발견된 생물 38977: 0');MOCK:Drain()
+check(count('^%.go ')==0 and f.note:GetText()==A:L('questSpawnMissing'),'zero-result Korean reply cannot produce an invented teleport')
+selectQuest(24994,{{text='죽음풀: 0/10',kind='item',finished=false}});f.finish:Click()
+MOCK:Fire('CHAT_MSG_SYSTEM',creature);A:Send('.save');MOCK:Drain()
+check(count('^%.go ')==0,'localized replies retain cancellation on another GM command')
+WorldMapFrame:Hide();MOCK.objectives=nil;UnitPosition=oldPosition;MOCK:Drain()
+check(#GMMLegionDiagnostics.errors==0,table.concat(GMMLegionDiagnostics.errors,'\n'))

@@ -1,0 +1,22 @@
+{
+  "repo": "hilch1981-prog/legion-gm-addon",
+  "version": "1.0.0",
+  "tag": "v1.0.0",
+  "client": "WoW 7.3.5.26972",
+  "server": "SPP Legion V2 Praevius 2026.2a",
+  "interface": 70300,
+  "lua": "5.1",
+  "asset": "GMminibar_SPP_Legion_7.3.5_v1.0.0.zip",
+  "publishedDate": "2026-10-12",
+  "prerelease": false,
+  "addonFiles": 28,
+  "localCandidate": false,
+  "testScope": "Korean client with localized server: quest 27168 End, Find Objective and Start verified in game. Korean/English UI and response parsing covered by mocks. Actual English-client gameplay, all destinations and multiplayer remain unverified.",
+  "gameplayTestedBuild": {
+    "version": "1.0.0-legion-rc8.1",
+    "sha256": "7e5f4953cbfab4a9118458f1226823429ec836e33e8d7d4f8cc6c6334ff31839",
+    "note": "Initial release changes version identifiers and documentation only; gameplay observations refer to this development build."
+  },
+  "assetSha256": "179ab51f7a06fdb31f0fb8284c98530f5e1a307a99231f045204f9775193bf17",
+  "assetBytes": 6047806
+}
